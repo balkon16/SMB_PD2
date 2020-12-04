@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".produkty.MainActivity">
 
     <Button
         android:id="@+id/button"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/product_name"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName3"
+        app:layout_constraintEnd_toStartOf="@+id/edit_product_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:text="@string/price"
         app:layout_constraintBottom_toTopOf="@+id/textView9"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumberDecimal2"
+        app:layout_constraintEnd_toStartOf="@+id/edit_price"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:text="@string/quantity"
         app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumberDecimal3"
+        app:layout_constraintEnd_toStartOf="@+id/edit_quantity"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -69,12 +69,12 @@
         android:layout_marginBottom="400dp"
         android:text="@string/unit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/spinner2"
+        app:layout_constraintEnd_toStartOf="@+id/unit_spinner"
         app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/unit_spinner"
         android:layout_width="207dp"
         android:layout_height="30dp"
         android:layout_marginEnd="40dp"
@@ -84,7 +84,7 @@
         android:entries="@array/measurement_units"/>
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/edit_product_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
@@ -96,38 +96,39 @@
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal2"
+        android:id="@+id/edit_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:ems="10"
         android:hint="@string/price_hint"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimal3"
+        app:layout_constraintBottom_toTopOf="@+id/edit_quantity"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_product_name" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal3"
+        android:id="@+id/edit_quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:ems="10"
         android:hint="@string/quantity_hint"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/spinner2"
+        app:layout_constraintBottom_toTopOf="@+id/unit_spinner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal2" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_price" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_product_button"
+        android:onClick="onAddProduct"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2"
+        app:layout_constraintTop_toBottomOf="@+id/unit_spinner"
         app:layout_constraintVertical_bias="0.279" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
