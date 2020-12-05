@@ -10,6 +10,7 @@
     <string name="name_hint">Nazwa produktu</string>
     <string name="price_hint">Cena w PLN</string>
     <string name="quantity_hint">Ilość</string>
+    <string name="product_list_label">Lista produktów</string>
 
 
     <string-array name="measurement_units">

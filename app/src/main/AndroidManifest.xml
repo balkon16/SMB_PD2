@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PracaDomowaNr2">
+        <activity android:name=".produkty.ProductListActivity"
+            android:label="@string/product_list_label"
+            android:parentActivityName="com.hfad.pracadomowanr2.produkty.MainActivity"
+            ></activity>
         <activity android:name=".produkty.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

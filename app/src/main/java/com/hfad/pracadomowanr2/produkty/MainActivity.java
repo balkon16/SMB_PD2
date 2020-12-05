@@ -2,6 +2,7 @@ package com.hfad.pracadomowanr2.produkty;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -16,7 +17,6 @@ import com.hfad.pracadomowanr2.R;
 public class MainActivity extends AppCompatActivity {
 
     private SQLiteDatabase db;
-    private DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,12 @@ public class MainActivity extends AppCompatActivity {
         // debug
         Toast toast = Toast.makeText(this, "Wartości: " + productName + productPrice + productUnit, Toast.LENGTH_SHORT);
         toast.show();
-        // TODO:
+        // TODO: tutaj ma być rozgłaszana intencja, że produkt został dodany do bazy danych
         DatabaseHelper.insertProduct(db, productName, productPrice, productQuantity, productUnit, false);
+    }
+
+    public void onClickShoppingList(View view){
+        Intent intent = new Intent(getApplicationContext(), ProductListActivity.class);
+        startActivity(intent);
     }
 }
