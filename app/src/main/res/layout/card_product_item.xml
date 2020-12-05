@@ -86,6 +86,12 @@
             tools:layout_editor_absoluteX="359dp"
             tools:layout_editor_absoluteY="77dp" />
 
+        <Button
+            android:id="@+id/manage_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/manage_product_button" />
+
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

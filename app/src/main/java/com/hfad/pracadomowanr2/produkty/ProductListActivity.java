@@ -21,6 +21,26 @@ public class ProductListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
 
+        updateProductList();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        setContentView(R.layout.activity_product_list);
+
+        updateProductList();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mDatabase != null) {
+            mDatabase.close();
+        }
+    }
+
+    private void updateProductList(){
         RecyclerView productsView = findViewById(R.id.products_recycler_view);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         productsView.setLayoutManager(gridLayoutManager);
@@ -34,18 +54,11 @@ public class ProductListActivity extends AppCompatActivity {
             productsView.setVisibility(View.VISIBLE);
             ProductsAdapter mAdapter = new ProductsAdapter(this, allProducts);
             productsView.setAdapter(mAdapter);
+
         }
         else {
-            Toast.makeText(this, "There is no contact in the database. Start adding now", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Lista zakupów jest pusta.", Toast.LENGTH_LONG).show();
 
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (mDatabase != null) {
-            mDatabase.close();
         }
     }
 }

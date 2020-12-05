@@ -1,6 +1,7 @@
 package com.hfad.pracadomowanr2.produkty;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,19 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductViewHolder> {
         holder.productPrice.setText(product.getPrice().toString());
         holder.productQuantity.setText(product.getQuantity().toString());
         holder.productUnit.setText(product.getUnit());
+
+        holder.manageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ProductDetailsActivity.class);
+                intent.putExtra("NAME", product.getName());
+                intent.putExtra("PRICE", product.getPrice());
+                intent.putExtra("QUANTITY", product.getQuantity());
+                intent.putExtra("UNIT", product.getUnit());
+                v.getContext().startActivity(intent);
+
+            }
+        });
     }
 
     @Override

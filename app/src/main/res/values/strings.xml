@@ -12,6 +12,11 @@
     <string name="quantity_hint">Ilość</string>
     <string name="product_list_label">Lista produktów</string>
     <string name="currency">PLN</string>
+    <string name="manage_product_button">Zarządzaj</string>
+    <string name="product_details_label">Szczegóły produktu</string>
+    <string name="already_bought">Kupione</string>
+    <string name="update_product_details">Aktualizuj!</string>
+
 
 
     <string-array name="measurement_units">
