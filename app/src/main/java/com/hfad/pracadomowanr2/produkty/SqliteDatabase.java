@@ -71,5 +71,12 @@ public class SqliteDatabase extends SQLiteOpenHelper {
     public void removeProduct(String name){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(PRODUCTS_TABLE, "NAME = ?", new String[]{name});
+        db.close();
+    }
+
+    public void updateProduct(String name, ContentValues values){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.update(PRODUCTS_TABLE, values, "NAME = ?", new String[]{name});
+        db.close();
     }
 }

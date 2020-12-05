@@ -2,12 +2,14 @@ package com.hfad.pracadomowanr2.produkty;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hfad.pracadomowanr2.R;
 
@@ -45,6 +47,22 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, ProductListActivity.class);
         startActivity(intent);
+    }
 
+    public void onUpdateProduct(View view){
+        TextView productNameTextView = (TextView) findViewById(R.id.name_field);
+        String productName = productNameTextView.getText().toString();
+        EditText productPriceEditText = (EditText) findViewById(R.id.new_price_filed);
+        Double productPrice = Double.parseDouble(productPriceEditText.getText().toString());
+        EditText productQuantityEditText = (EditText) findViewById(R.id.new_quantity_field);
+        Double productQuantity = Double.parseDouble(productQuantityEditText.getText().toString());
+
+        ContentValues values = new ContentValues();
+        values.put("PRICE", productPrice);
+        values.put("QUANTITY", productQuantity);
+        mDatabase.updateProduct(productName, values);
+
+        Toast toast = Toast.makeText(this, "Zaktualizowano produkt " + productName + ".", Toast.LENGTH_SHORT);
+        toast.show();
     }
 }
