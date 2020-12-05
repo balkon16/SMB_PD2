@@ -16,7 +16,7 @@ import com.hfad.pracadomowanr2.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private SQLiteDatabase db;
+    private SqliteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +26,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupDatabase(){
-        SQLiteOpenHelper dbHelper = new DatabaseHelper(this);
-        try{
-            db = dbHelper.getReadableDatabase();
 
+        try{
+            db = new SqliteDatabase(this);
         } catch(SQLiteException e){
             Toast toast = Toast.makeText(this, "Baza niedostępna.", Toast.LENGTH_SHORT);
             toast.show();
@@ -53,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(this, "Wartości: " + productName + productPrice + productUnit, Toast.LENGTH_SHORT);
         toast.show();
         // TODO: tutaj ma być rozgłaszana intencja, że produkt został dodany do bazy danych
-        DatabaseHelper.insertProduct(db, productName, productPrice, productQuantity, productUnit, false);
+        db.addProduct(new Product(productName, productPrice, productQuantity, productUnit));
+//        DatabaseHelper.insertProduct(db, productName, productPrice, productQuantity, productUnit, false);
     }
 
     public void onClickShoppingList(View view){
