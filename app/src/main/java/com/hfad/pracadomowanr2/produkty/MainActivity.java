@@ -53,7 +53,14 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
         // TODO: tutaj ma być rozgłaszana intencja, że produkt został dodany do bazy danych
         db.addProduct(new Product(productName, productPrice, productQuantity, productUnit));
-//        DatabaseHelper.insertProduct(db, productName, productPrice, productQuantity, productUnit, false);
+
+        Intent intent = new Intent();
+        intent.setAction("com.hfad.pracadomowanr2.produkty.NEW_PRODUCT_ADDED");
+        intent.putExtra("NAME", productName);
+        intent.putExtra("PRICE", productPrice);
+        intent.putExtra("QUANTITY", productQuantity);
+        intent.putExtra("UNIT", productUnit);
+        sendBroadcast(intent);
     }
 
     public void onClickShoppingList(View view){
