@@ -12,7 +12,9 @@
         <activity
             android:name=".produkty.ProductDetailsActivity"
             android:label="@string/product_details_label"
-            android:parentActivityName=".produkty.ProductListActivity" />
+            android:parentActivityName=".produkty.ProductListActivity"
+            android:exported="true">
+            </activity>
         <activity
             android:name=".produkty.ProductListActivity"
             android:label="@string/product_list_label"
