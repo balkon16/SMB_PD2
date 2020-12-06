@@ -58,24 +58,4 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductViewHolder> {
         return productsList.size();
     }
 
-    interface Listener {
-        void onClick(int position);
-    }
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-
-        private CardView cardView;
-
-        public ViewHolder(CardView v) {
-            super(v);
-            cardView = v;
-        }
-    }
-
-
-    // TODO: jak coś nie będzie działać to zajrzyj tutaj i zrób dokładnie tak samo jak w przykładzie
-
-
-    // TODO: onBindViewHolder
-
 }
