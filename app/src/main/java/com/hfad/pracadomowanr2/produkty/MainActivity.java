@@ -48,10 +48,6 @@ public class MainActivity extends AppCompatActivity {
         Spinner unitSpinner = (Spinner) findViewById(R.id.unit_spinner);
         String productUnit = String.valueOf(unitSpinner.getSelectedItem());
 
-        // debug
-        Toast toast = Toast.makeText(this, "Wartości: " + productName + productPrice + productUnit, Toast.LENGTH_SHORT);
-        toast.show();
-        // TODO: tutaj ma być rozgłaszana intencja, że produkt został dodany do bazy danych
         db.addProduct(new Product(productName, productPrice, productQuantity, productUnit));
 
         Intent intent = new Intent();
